@@ -6,7 +6,7 @@ pipeline {
             stage('TerraformInit'){
             steps {
                 dir('dev'){
-                    sh "terraform init "
+                    sh "terraform init -auto-approve "
                 }
             }
         }
