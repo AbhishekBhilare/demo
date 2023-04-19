@@ -26,11 +26,11 @@ pipeline {
     parameters {
         string(name: 'WORKSPACE', defaultValue: 'development', description:'setting up workspace for terraform')
     }
-    environment {
-//         TF_HOME = tool('terraform')
-//         TP_LOG = "WARN"
-//         PATH = "$TF_HOME:$PATH"
-    }
+//     environment {
+//          TF_HOME = tool('terraform')
+//       TP_LOG = "WARN"
+//          PATH = "$TF_HOME:$PATH"
+//     }
     stages {
             stage('TerraformInit'){
             steps {
