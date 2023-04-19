@@ -8,6 +8,6 @@ from_port = [443, 8080, 44]
 
 to_port = [443, 8080, 44]
 
-key-name = "abhishek-key"
+key-name = "abhishek_key"
 
 no-of-instance = 1
