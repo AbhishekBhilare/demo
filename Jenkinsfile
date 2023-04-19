@@ -6,7 +6,7 @@ pipeline {
             stage('TerraformInit'){
             steps {
                 dir('dev'){
-                    sh "terraform init -input=false"
+                    sh "terraform init "
                 }
             }
         }
