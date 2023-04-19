@@ -7,6 +7,6 @@ module "ec2" {
   from_port = var.from_port
   to_port = var.to_port
   key-name = var.key_name
-  no-of-instance = var.no-of-instances
+  no-of-instance = var.no-of-instance
   
 }
