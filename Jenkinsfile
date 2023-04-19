@@ -11,8 +11,11 @@ pipeline {
         
         stage('terraform initialization and planning') {
             steps {
-                sh "terraform init"
-                sh "terraform plan "
+                dir('dev') {
+                    /* execute commands in the scripts directory */
+                    sh "terraform init"
+                    sh "terraform plan "
+                }
             }
         }
     }
