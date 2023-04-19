@@ -82,6 +82,26 @@ pipeline {
                     }
                 }
             }
+            stage('TerraformDestroy'){
+            steps {
+                script{
+                    def apply = false
+                    try {
+                        echo "true"
+                        input message: 'Can you please confirm the apply', ok: 'Ready to Apply the Config'
+                        echo "button pressed"
+                        apply = true
+                    } catch (err) {
+                        apply = false
+                         currentBuild.result = 'UNSTABLE'
+                    }
+                    if(apply){
+                        dir('dev'){
+                            sh 'terraform destroy ' 
+                        }
+                    }
+                }
+            }
         }
     }
 }
