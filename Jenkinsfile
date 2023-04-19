@@ -23,14 +23,7 @@
 pipeline {
     agent any
     
-    parameters {
-        string(name: 'WORKSPACE', defaultValue: 'development', description:'setting up workspace for terraform')
-    }
-//     environment {
-//          TF_HOME = tool('terraform')
-//       TP_LOG = "WARN"
-//          PATH = "$TF_HOME:$PATH"
-//     }
+
     stages {
             stage('TerraformInit'){
             steps {
@@ -43,7 +36,7 @@ pipeline {
         stage('TerraformFormat'){
             steps {
                 dir('dev'){
-                    sh "terraform fmt -list=true -write=false -diff=true -check=true"
+                    sh "terraform fmt"
                 }
             }
         }
@@ -60,11 +53,6 @@ pipeline {
             steps {
                 dir('dev'){
                     script {
-                        try {
-                            sh "terraform workspace new ${params.WORKSPACE}"
-                        } catch (err) {
-                            sh "terraform workspace select ${params.WORKSPACE}"
-                        }
                         sh "terraform plan  \
                         -out terraform.tfplan;echo \$? > status"
                         stash name: "terraform-plan", includes: "terraform.tfplan"
