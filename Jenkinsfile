@@ -8,7 +8,7 @@ pipeline {
                 dir('dev'){
                     sh "ls -a"
                     sh "pwd"
-                    sh "terraform init -auto-approve "
+                    sh "terraform init "
                 }
             }
         }
