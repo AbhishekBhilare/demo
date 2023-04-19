@@ -36,8 +36,6 @@ pipeline {
             steps {
                 dir('dev'){
                     sh "terraform init -input=false"
-                    sh "echo \$PWD"
-                    sh "whoami"
                 }
             }
         }
