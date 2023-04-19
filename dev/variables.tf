@@ -14,6 +14,22 @@ variable "Dev-instance-ami" {
 }
 
 
+variable "from_port" {
+  description = "Instance type for dev env"
+  type        = list
+}
+
+variable "to_port" {
+  description = "Instance type for dev env"
+  type        = list
+}
 
 
+variable "no-of-instance" {
+  description = "Instance type for dev env"
+  type        = number
+}
 
+variable "key_name"{
+  type = string
+}
